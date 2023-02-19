@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Sigmar+One&display=swap');
+
+body {
+    font-family: Arial, Helvetica;
+    margin: 0;
+
+}
+
+.header {
+    padding: 80px;
+    text-align: center;
+    /*background: #5780ef; */
+    background-image: url("images/hungary.jpg");
+    color: white;
+}
+
+.header h1{
+    font-size: 40px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: white;
+}
+
+a:hover:not(.active) {
+    background-color: #111;
+}
+  
+.active {
+    background-color: #5381C5;
+}
+
+ol {
+    list-style-position: inside;
+    /* Start counter */
+    counter-reset: list;
+}
+  
+li {
+    font-family: 'Raleway', sans-serif;
+    /* Increment counter on each list item */
+    counter-increment: list;
+}
+
+.facts {
+    font-size: 25px;
+
+}
+  
+li::marker {
+    font-family: "Sigmar One", cursive;
+    font-size: 30px;
+    /* Use counter to display the current number */
+    content: "Fact " counter(list) ". ";
+}
