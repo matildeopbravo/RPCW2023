@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+    <meta>
+        <titulo> Trabalho Prático 1 </titulo>
+        <subtitulo> Página Web sobre a Hungria</subtitulo>
+        <data> 2023-02-20 </data>
+        <autor>
+            <nome> Matilde Bravo </nome>
+            <id>PG50651</id>
+            <gitlink> https://github.com/matildeopbravo/rpcw2023 </gitlink>
+        </autor>
+        <uc> Representação e Processamento de Conhecimento na Web </uc>
+    </meta>
+    <resumo>
+        <p> Este projeto consiste na criação de uma página <i>web</i> com informação sobre a Hungria. Visa apresentar alguns factos sobre este país, bem como a sua lista de cidades e informação sobre a capital. </p>
+    </resumo>
+    <resultados>
+        <resultado path="index.html">Ficheiro HTML</resultado>
+        <resultado path="style.css">Ficheiro CSS</resultado>
+    </resultados>
+</manifesto>
