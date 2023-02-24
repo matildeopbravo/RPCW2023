@@ -37,14 +37,14 @@ def create_html_elem(arqelem, i):
         <p><b> Lugar: </b> {arqelem.LUGAR.text}  </p>
         <p><b> Fregue: </b> {arqelem.FREGUE.text} </p>
         <p><b> Concel: </b> {arqelem.CONCEL.text}  </p>
-        <p><b> CODADM: </b> TODO </p>
-        <p><b> Latitude: </b> TODO </p>
-        <p><b> Longitude: </b> TODO </p>
-        <p><b> Acesso: </b> TODO </p>
-        <p><b> Quadro: </b> TODO </p>
-        <p><b> Desarq: </b> TODO </p>
-        <p><b> Interp: </b> TODO </p>
-        <p><b> Deposi: </b> TODO </p>
+        <p><b> CODADM: </b> {arqelem.CODADM.text if arqelem.CODADM else "" }</p>
+        <p><b> Latitude: </b> {arqelem.LATITU.text if arqelem.LATITU else ""}  </p>
+        <p><b> Longitude: </b> {arqelem.LONGIT.text if arqelem.LONGIT else ""} </p>
+        <p><b> Acesso: </b> {arqelem.ACESSO.text if arqelem.ACESSO else ""} </p>
+        <p><b> Quadro: </b> {arqelem.QUADRO.text if arqelem.QUADRO else ""} </p>
+        <p><b> Desarq: </b> {arqelem.DESARQ.text if arqelem.DESARQ else ""} </p>
+        <p><b> Interp: </b> {arqelem.INTERP.text if arqelem.INTERP else ""} </p>
+        <p><b> Deposi: </b> {arqelem.DEPOSI.text if arqelem.DEPOSI else ""} </p>
         <p><b> Biblio: </b></p>
         <ul>
         """
@@ -56,6 +56,9 @@ def create_html_elem(arqelem, i):
         </ul>
         <p><b> Autor: </b> {arqelem.AUTOR.text} </p>
         <p><b> Data: </b> {arqelem.DATA.text} </p>
+    """
+    content += f"""
+        <a href="{i}.xml"> XML </a>
     """
     with open(f"htmls/arq{i}.html", "w") as file:
         file.write(begin + content + end)
@@ -85,7 +88,6 @@ with open("arq_dataset.xml", "r", encoding="utf-8") as file:
             </li>
             """
             create_html_elem(sitio, i)
-            ##print(sitio.IDENTI.text)
             # escrever sem a tag ARQELEM
             # arq_file.write("".join([str(s) for s in sitio.contents]).strip())
         i += 1
@@ -93,4 +95,5 @@ pag_index += f"""</ul>
         </body>
     </html>
 """
-print(pag_index)
+with open("index.html", "w", encoding="utf-8") as file:
+    file.write(pag_index)
