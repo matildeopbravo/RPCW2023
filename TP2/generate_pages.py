@@ -33,7 +33,7 @@ def create_html_elem(arqelem, i):
         <h1> Arqueossitio {i} </h1>
         <p><b> Identidade: </b> {arqelem.IDENTI.text} </p>
         <p><b> Descrição: </b> {arqelem.DESCRI.text} </p>
-        <p><b> Crono: </b> {arqelem.CRONO.text if arqelem.CRONO else ""} </p>
+        <p><b> Cronologia: </b> {arqelem.CRONO.text if arqelem.CRONO else ""} </p>
         <p><b> Lugar: </b> {arqelem.LUGAR.text}  </p>
         <p><b> Fregue: </b> {arqelem.FREGUE.text} </p>
         <p><b> Concel: </b> {arqelem.CONCEL.text}  </p>
@@ -58,7 +58,7 @@ def create_html_elem(arqelem, i):
         <p><b> Data: </b> {arqelem.DATA.text} </p>
     """
     content += f"""
-        <a href="{i}.xml"> XML </a>
+        <a href="/xml/{i}"> XML </a>
     """
     with open(f"htmls/arq{i}.html", "w") as file:
         file.write(begin + content + end)
@@ -84,7 +84,7 @@ with open("arq_dataset.xml", "r", encoding="utf-8") as file:
             arq_file.write(str(sitio))
             pag_index += f"""
             <li>
-                <a href="{i}"> Arqueossitio {i} </a>
+                <a href="/html/{i}"> Arqueossitio {i} </a>
             </li>
             """
             create_html_elem(sitio, i)

@@ -17,14 +17,15 @@ http.createServer(function(req, res) {
     if (req.url == '/') {
         serve_file("index.html", "html", res)
     }
-    else if(req.url.match(/\/\d+$/)) {
-        num = req.url.substring(1)
+    else if(req.url.match(/\/html\/\d+$/)) {
+        num = req.url.split("/")[2]
+        console.log(num)
         serve_file(`htmls/arq${num}.html`, "html", res)
     }
-    else if (req.url.match(/\/\d+.xml/)) {
+    else if (req.url.match(/\/xml\/\d+$/)) {
+        num = req.url.split("/")[2]
         serve_file(`xmls/arq${num}.xml`, "xml", res)
     }
-
     else {
         res.writeHead(400, { 'Content-Type': 'text/plain' })
         res.write('404 Not Found')
