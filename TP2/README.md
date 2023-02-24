@@ -1,3 +1,4 @@
+# Setting Up
 ### Generate XML and HTML files
 ```sh
 python generate_pages.py
