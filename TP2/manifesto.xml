@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+    <meta>
+        <titulo> Trabalho Prático 2 </titulo>
+        <subtitulo> Criação de um servidor dos registos de um dataset de arqueossítios </subtitulo>
+        <data> 2023-02-24 </data>
+        <autor>
+            <nome> Matilde Bravo </nome>
+            <id>PG50651</id>
+            <gitlink> https://github.com/matildeopbravo/rpcw2023 </gitlink>
+        </autor>
+        <uc> Representação e Processamento de Conhecimento na Web </uc>
+    </meta>
+    <resumo>
+        <p> Este projeto consiste na criação de um servidor, em <xref url="https://nodejs.org"> node.js </xref>,
+            cujo objetivo é disponibilizar os arqueossítios do <i> dataset fornecido. </i>  </p>
+        <p> Em primeiro lugar, foi criado um programa em <i> Python </i> cujo objetivo é ler o <i> dataset </i> em xml e descontruí-lo, de forma a separar os diversos arqueossítios
+        nos vários ficheiros xml correspondentes. Além da criação dos ficheiros xml, são também geradas páginas html
+            correspondentes a cada um dos sítios e uma página de índice que contém <i> links </i> para as mesmas. </p>
+        <p> Acedendo à rota principal do servidor "/" é possível ter acesso à página html do índice. Além disso, é possível ter acesso aos diferentes arqueossítios, tanto na versão
+            html como na versão xml, sendo apenas necessário indicar o formato e o número do sítio. Por exemplo, efetuando um pedido "GET" para a rota "/xml/10" iremos obter o
+            ficheiro xml correspondente ao arqueossítio 10. </p>
+        <p> Por forma a ser feita uma única travessia pelo <i> dataset </i>, as páginas são todas geradas de uma vez, apenas sendo necessário correr o programa principal em <b> Python </b>. </p>
+    </resumo>
+    <resultados>
+        <resultado path="generate_pages.py">Gerador dos ficheiros XML e HTML </resultado>
+        <resultado path="server.js">Servidor dos conteúdos</resultado>
+    </resultados>
+</manifesto>

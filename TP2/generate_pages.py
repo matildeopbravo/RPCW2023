@@ -69,11 +69,11 @@ def create_dir(dir_name):
         os.makedirs(dir_name)
 
 
-xml_dir = "xmls"
-html_dir = "htmls"
+XML_DIR = "xmls"
+HTML_DIR = "htmls"
 
-create_dir(xml_dir)
-create_dir(html_dir)
+create_dir(XML_DIR)
+create_dir(HTML_DIR)
 
 with open("arq_dataset.xml", "r", encoding="utf-8") as file:
     soup = bs(file, features="xml")
@@ -81,17 +81,20 @@ with open("arq_dataset.xml", "r", encoding="utf-8") as file:
     i = 1
     for sitio in arqsitios:
         with open(f"xmls/arq{i}.xml", "w", encoding="utf-8") as arq_file:
+            # criação ficheiro xml
             arq_file.write(str(sitio))
+            # append ao ficheiro de índice
             pag_index += f"""
             <li>
                 <a href="/html/{i}"> Arqueossitio {i} </a>
             </li>
             """
+            # criação ficheiro html
             create_html_elem(sitio, i)
             # escrever sem a tag ARQELEM
             # arq_file.write("".join([str(s) for s in sitio.contents]).strip())
         i += 1
-pag_index += f"""</ul>
+pag_index += """</ul>
         </body>
     </html>
 """
