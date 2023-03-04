@@ -1,0 +1,15 @@
+{
+  "name": "tp3",
+  "version": "1.0.0",
+  "description": "TPC3 no âmbito da UC Representação e Processamento de Conhecimento Web",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matilde Bravo",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.3.4",
+    "json-server": "^0.17.2"
+  }
+}
