@@ -1,5 +1,5 @@
-exports.pessoasPage = function(lista) {
-    var pagHTML = `
+exports.pessoasPage = function (lista) {
+  var pagHTML = `
     <!DOCTYPE html>
     <html>
          <head>
@@ -14,10 +14,10 @@ exports.pessoasPage = function(lista) {
                     </header>
 
         <div class="w3-container">
-    `
-    pagHTML += criaTabelaPessoas(lista)
+    `;
+  pagHTML += criaTabelaPessoas(lista);
 
-    pagHTML += `
+  pagHTML += `
             </div>
                 <footer class="w3-container w3-blue">
                 <h5>Generated in RPCW</h5>
@@ -26,12 +26,12 @@ exports.pessoasPage = function(lista) {
             </table>
         </body>
     </html>
-    `
-    return pagHTML
-}
+    `;
+  return pagHTML;
+};
 
-exports.mainPage = function() {
-    var pagHTML = `
+exports.mainPage = function () {
+  var pagHTML = `
         <!DOCTYPE html>
         <html>
             <head>
@@ -49,9 +49,9 @@ exports.mainPage = function() {
 
                     <header class="w3-container w3-blue">
                         <h1>Página Principal</h1>
-                    </header> `
+                    </header> `;
 
-    pagHTML += `
+  pagHTML += `
         <div class="w3-display-middle">
         <a href="/pessoas">
             <button class="w3-button w3-light-green">Lista de Indivíduos</button>
@@ -65,16 +65,16 @@ exports.mainPage = function() {
         <a href="/top10_profissoes">
             <button class="w3-button w3-light-green">Top 10 profissões</button>
         </a>
-        </div> `
-    pagHTML += `
+        </div> `;
+  pagHTML += `
             </body>
         </html>
-    `
-    return pagHTML
-}
+    `;
+  return pagHTML;
+};
 
-exports.pessoaPage = function(pessoa) {
-    var pagHTML = `
+exports.pessoaPage = function (pessoa) {
+  var pagHTML = `
     <!DOCTYPE html>
     <html>
       <head>
@@ -102,8 +102,8 @@ exports.pessoaPage = function(pessoa) {
               <td>${pessoa.morada.cidade}, ${pessoa.morada.distrito}</td>
             </tr>
             <tr>
-              <th>${pessoa.BI? "BI": "CC"}</th>
-              <td>${pessoa.BI? pessoa.BI : pessoa.CC}</td>
+              <th>${pessoa.BI ? "BI" : "CC"}</th>
+              <td>${pessoa.BI ? pessoa.BI : pessoa.CC}</td>
             </tr>
             <tr>
               <th>Profissão</th>
@@ -115,16 +115,20 @@ exports.pessoaPage = function(pessoa) {
             </tr>
             <tr>
               <th>Desportos</th>
-              <td>${pessoa.desportos? pessoa.desportos.join(", ") : ""}</td>
+              <td>${pessoa.desportos ? pessoa.desportos.join(", ") : ""}</td>
             </tr>
             <tr>
               <th>Animais</th>
-              <td>${pessoa.animais? pessoa.animais.join(", ") : ""}</td>
+              <td>${pessoa.animais ? pessoa.animais.join(", ") : ""}</td>
             </tr>
             </tr>
             <tr>
               <th>Figura Pública PT</th>
-              <td>${pessoa.figura_public_pt? pessoa.figura_public_pt.join(", ") : ""}</td>
+              <td>${
+                pessoa.figura_public_pt
+                  ? pessoa.figura_public_pt.join(", ")
+                  : ""
+              }</td>
             </tr>
             <tr>
               <th>Marca Carro</th>
@@ -132,26 +136,29 @@ exports.pessoaPage = function(pessoa) {
             </tr>
             <tr>
               <th>Destinos Favorito</th>
-              <td>${pessoa.destinos_favoritos ? pessoa.destinos_favoritos.join(", ") : ""}</td>
+              <td>${
+                pessoa.destinos_favoritos
+                  ? pessoa.destinos_favoritos.join(", ")
+                  : ""
+              }</td>
             </tr>
-            `
-    for (let k in pessoa.atributos) {
-        pagHTML += `
+            `;
+  for (let k in pessoa.atributos) {
+    pagHTML += `
         <tr>
             <th> ${k} </th>
             <td> ${pessoa.atributos[k]} </td>
-        </tr> `
-    }
+        </tr> `;
+  }
 
-    pagHTML += 
-    `</table>
+  pagHTML += `</table>
       </body>
-    </html>`
-    
-    return pagHTML
-}
-function criaTabelaPessoas (pessoas) {
-    var pagHTML = `
+    </html>`;
+
+  return pagHTML;
+};
+function criaTabelaPessoas(pessoas) {
+  var pagHTML = `
             <table class="w3-table-all">
                     <tr>
                         <th>Id</th>
@@ -159,10 +166,10 @@ function criaTabelaPessoas (pessoas) {
                         <th>Idade</th>
                         <th>Sexo</th>
                         <th>Cidade</th>
-                    </tr> `
+                    </tr> `;
 
-    for(let i = 0; i < pessoas.length; i++) {
-        pagHTML += `
+  for (let i = 0; i < pessoas.length; i++) {
+    pagHTML += `
         <tr>
             <td> ${pessoas[i].id} </td>
             <td> ${pessoas[i].nome} </td>
@@ -171,14 +178,17 @@ function criaTabelaPessoas (pessoas) {
             <td> ${pessoas[i].morada.cidade} </td>
             <td><a href="/pessoas?id=${pessoas[i].id}" class="w3-button w3-light-green">Informação</a></td>
         </tr>
-        `
-    }
-    pagHTML += "</table>"
-    return pagHTML
-
+        `;
+  }
+  pagHTML += "</table>";
+  return pagHTML;
 }
-exports.distribuicaoSexo = function(pessoasFeminino, pessoasMasculino, pessoasOutro) {
-    var pagHTML = `
+exports.distribuicaoSexo = function (
+  pessoasFeminino,
+  pessoasMasculino,
+  pessoasOutro
+) {
+  var pagHTML = `
     <!DOCTYPE html>
     <html>
          <head>
@@ -193,16 +203,16 @@ exports.distribuicaoSexo = function(pessoasFeminino, pessoasMasculino, pessoasOu
                     </header>
 
         <div class="w3-container">
-    `
-    pagHTML += `<h2> Feminino - ${Object.keys(pessoasFeminino).length}</h2>`
-    pagHTML += criaTabelaPessoas(pessoasFeminino)
-    // por numero or something
-    pagHTML += `<h2> Masculino - ${Object.keys(pessoasMasculino).length}</h2>`
-    pagHTML += criaTabelaPessoas(pessoasMasculino)
-    pagHTML += `<h2> Outro - ${Object.keys(pessoasOutro).length}</h2>`
-    pagHTML += criaTabelaPessoas(pessoasOutro)
+    `;
+  pagHTML += `<h2> Feminino - ${Object.keys(pessoasFeminino).length}</h2>`;
+  pagHTML += criaTabelaPessoas(pessoasFeminino);
+  // por numero or something
+  pagHTML += `<h2> Masculino - ${Object.keys(pessoasMasculino).length}</h2>`;
+  pagHTML += criaTabelaPessoas(pessoasMasculino);
+  pagHTML += `<h2> Outro - ${Object.keys(pessoasOutro).length}</h2>`;
+  pagHTML += criaTabelaPessoas(pessoasOutro);
 
-    pagHTML += `
+  pagHTML += `
             </div>
                 <footer class="w3-container w3-blue">
                 <h5>Generated in RPCW</h5>
@@ -211,6 +221,6 @@ exports.distribuicaoSexo = function(pessoasFeminino, pessoasMasculino, pessoasOu
             </table>
         </body>
     </html>
-    `
-    return pagHTML
-}
+    `;
+  return pagHTML;
+};
