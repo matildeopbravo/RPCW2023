@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+    <meta>
+        <titulo> Trabalho Prático 4 </titulo>
+        <subtitulo> Criação de uma aplicação de toDos  </subtitulo>
+        <data> 2023-03-13 </data>
+        <autor>
+            <nome> Matilde Bravo </nome>
+            <id>PG50651</id>
+            <gitlink> https://github.com/matildeopbravo/rpcw2023 </gitlink>
+        </autor>
+        <uc> Representação e Processamento de Conhecimento na Web </uc>
+    </meta>
+    <resumo>
+        <p> Este projeto consiste na criação de uma <i>Single Page Application</i> de gestão de tarefas (toDos).  </p>
+        <p> A página contém um formulário para a criação de uma tarefa, uma lista das tarefas por fazer e uma lista das tarefas realizadas. O utilizador pode completar uma
+        dada tarefa, bem como editá-la e removê-la. </p>
+        <p> O json-server é utilizado para gerir o armazenamento das tarefas, sendo que a aplicação comunica com este através de pedidos <b>HTTP</b></p>
+    </resumo>
+    <resultados>
+        <resultado path="todo_server.js"> Servidor</resultado>
+        <resultado path="templates.js"> Ficheiro que contém as funções que geram os vários componentes da página html</resultado>
+        <resultado path="static.js"> Ficheiro que contém as funções responsáveis por servir ficheiros estáticos</resultado>
+        <resultado path="w3.css"> Stylesheet da w3.css framework </resultado>
+        <resultado path="package.json"> Ficheiro com dependências do projeto node</resultado>
+    </resultados>
+</manifesto>
