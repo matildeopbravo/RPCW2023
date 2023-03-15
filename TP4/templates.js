@@ -16,8 +16,10 @@ exports.todoPage = function (wasCreated, todo, done) {
                     <h5> Todo App </h5>
             </header>
         ${createForm(wasCreated)}
+        <div class="w3-row-padding w3-border">
         ${showTodo(todo)}
         ${showDone(done)}
+        </div>
                 <footer class="w3-container w3-blue">
                     Made with ♥ by Matilde
                 </footer>
@@ -51,38 +53,44 @@ function createForm(wasCreated) {
     `;
 }
 function showTodo(tasks) {
-  pagHTML = `<div class="w3-card-4 w3-container w3-cell">
+  pagHTML = `<div class="w3-container w3-half">
         <h1> Todo </h1>
     `;
-  console.log(typeof tasks);
   for (let i in tasks) {
-    pagHTML += `<p>${tasks[i].description}; ${tasks[i].due_date}; ${tasks[i].person}
-      <form method="POST">
+    pagHTML += `<div class="w3-container w3-border">
+          <p>${tasks[i].description} </p>
+          <p> ${tasks[i].due_date} </p> <p> ${tasks[i].person} </p>
+      <form method="POST" style="display:inline">
            <input type="hidden" name="id" value="${tasks[i].id}" />
            <input type="hidden" name="method" value="PATCH" />
            <input type="hidden" name="isComplete" value="false" />
             <button class="w3-btn w3-light-green w3-mb-2" type="submit">Complete</button>
-          </p>
     </form>
-
+     <form method="POST" style="display:inline">
+           <input type="hidden" name="id" value="${tasks[i].id}" />
+           <input type="hidden" name="method" value="DELETE" />
+            <button class="w3-btn w3-red w3-mb-2" type="submit">Delete</button>
+    </form>
+    </div>
           `;
   }
   pagHTML += "</div>";
   return pagHTML;
 }
 function showDone(tasks) {
-  pagHTML = `<div class="w3-card-4 w3-container w3-cell">
+  pagHTML = `<div class="w3-container w3-half">
         <h1> Done </h1>
     `;
-  console.log(typeof tasks);
   for (let i in tasks) {
-    pagHTML += `<p>${tasks[i].description}; ${tasks[i].due_date}; ${tasks[i].person}
-      <form method="POST">
+    pagHTML += `<div class="w3-container w3-border">
+          <p>${tasks[i].description} </p>
+          <p> ${tasks[i].due_date} </p> <p> ${tasks[i].person} </p>
+          <form method="POST" >
            <input type="hidden" name="id" value="${tasks[i].id}" />
            <input type="hidden" name="method" value="DELETE" />
-            <button class="w3-btn w3-light-green w3-mb-2" type="submit">Delete</button>
-          </p>
+            <button class="w3-btn w3-red w3-mb-2" type="submit">Delete</button>
     </form>
+          </div>
 
           `;
   }
