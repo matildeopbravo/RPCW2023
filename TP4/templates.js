@@ -8,6 +8,21 @@ exports.todoPage = function (wasCreated, todo, done) {
             <link rel="icon" href="favicon.png"/>
             <link rel="stylesheet" href="w3.css"/>
             <title>Todo App</title>
+            <style>
+                .task {
+                    margin: 1%;
+                    padding: 1%;
+                    border-radius: 10px;
+                    background-color: #f9f9f9;
+                    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+                    border: 2px solid #2596be;
+                    border-radius: 5px;
+                }
+                .task p {
+                        margin: 0.5%;
+                        padding: 0.5%;
+                }
+            </style>
         </head>
         <body>
             <div class="w3-card-4">
@@ -15,10 +30,10 @@ exports.todoPage = function (wasCreated, todo, done) {
             <header  class="w3-container w3-blue">
                     <h5> Todo App </h5>
             </header>
-        ${createForm(wasCreated)}
+                ${createForm(wasCreated)}
         <div class="w3-row-padding w3-border">
-        ${showTodo(todo)}
-        ${showDone(done)}
+            ${showTodo(todo)}
+            ${showDone(done)}
         </div>
                 <footer class="w3-container w3-blue">
                     Made with ♥ by Matilde
@@ -57,7 +72,7 @@ function showTodo(tasks) {
         <h1> Todo </h1>
     `;
   for (let i in tasks) {
-    pagHTML += `<div class="w3-container w3-border">
+    pagHTML += `<div class="w3-container task">
           <p>${tasks[i].description} </p>
           <p> ${tasks[i].due_date} </p> <p> ${tasks[i].person} </p>
       <form method="POST" style="display:inline">
@@ -82,7 +97,7 @@ function showDone(tasks) {
         <h1> Done </h1>
     `;
   for (let i in tasks) {
-    pagHTML += `<div class="w3-container w3-border">
+    pagHTML += `<div class="w3-container task">
           <p>${tasks[i].description} </p>
           <p> ${tasks[i].due_date} </p> <p> ${tasks[i].person} </p>
           <form method="POST" >
