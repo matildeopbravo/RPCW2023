@@ -1,0 +1,53 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue
+            h5 Todo App
+        form.w3-container(method="POST")
+            fieldset
+                legend Description
+                input.w3-input.w3-round(type="text",name="description",required="true")
+            fieldset
+                legend Due Date
+                input.w3-input.w3-round(type="date",name="due_date",required="true")
+            fieldset
+                legend Person
+                input.w3-input.w3-round(type="text",name="person",required="true")
+            br
+            input(type="hidden",name="method",value="POST")
+            button.w3-btn.w3-light-green.w3-mb-2(type="submit") Create
+            if wasAdded
+                p Success
+        .w3-row-padding.w3-border
+            .w3-container.w3-half
+                h1 Todo
+                each task in todo
+                    .w3-container.task
+                        p= task.description
+                        p= task.due_date
+                        p= task.person
+                        form(method="POST",style="display:inline")
+                            input(type="hidden",name="id",value=task.id)
+                            input(type="hidden",name="method",value="PATCH")
+                            input(type="hidden",name="isComplete",value="false")
+                            button.w3-btn.w3-light-green.w3-mb-2(type="submit") Complete
+                        form(method="POST",style="display:inline")
+                            input(type="hidden",name="id",value=task.id)
+                            input(type="hidden",name="method",value="DELETE")
+                            button.w3-btn.w3-red.w3-mb-2(type="submit") Delete
+            .w3-container.w3-half
+                h1 Done
+                each task in done
+                    .w3-container.task
+                        p= task.description
+                        p= task.due_date
+                        p= task.person
+                        form(method="POST",style="display:inline")
+                            input(type="hidden",name="id",value=task.id)
+                            input(type="hidden",name="method",value="DELETE")
+                            button.w3-btn.w3-red.w3-mb-2(type="submit") Delete
+
+        .footer.w3-container.w3-blue Made with ♥ by Matilde
+
+
