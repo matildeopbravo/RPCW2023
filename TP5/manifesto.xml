@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifesto>
+    <meta>
+        <titulo> Trabalho Prático 5 </titulo>
+        <subtitulo> Criação de uma aplicação de ToDos em ExpressJS </subtitulo>
+        <data> 2023-03-20 </data>
+        <autor>
+            <nome> Matilde Bravo </nome>
+            <id>PG50651</id>
+            <gitlink> https://github.com/matildeopbravo/rpcw2023 </gitlink>
+        </autor>
+        <uc> Representação e Processamento de Conhecimento na Web </uc>
+    </meta>
+    <resumo>
+        <p> Este projeto consistiu numa conversão do trabalho prático quatro, feito apenas com <b> Node.js </b>, para uma versão que utiliza <xref url="https://expressjs.com/">ExpressJS</xref>.</p>
+        <p> Para tal, foi necessário definir as diversas rotas e os controladores necessários, bem como adaptar a geração das páginas html para usarem o <i>template engine </i><xref url="https://pugjs.org/">Pug</xref>.</p>
+    </resumo>
+    <resultados>
+         <resultado path="controllers/task.js"> Lógica de negócios sobre tarefas.</resultado>
+         <resultado path="routes/index.js"> Definição dos <i>handlers</i> para as rotas do servidor</resultado>
+         <resultado path="views/index.pug"> Template da página principal em pug </resultado>
+         <resultado path="package.json"> Ficheiro com dependências do projeto node</resultado>
+         <resultado path="todo.json"> Base de dados com as tarefas </resultado>
+         <resultado path="todo/public/stylesheets/w3.css"> Ficheiro com o css da framework W3.CSS </resultado>
+         <resultado path="todo/app.js"> Ficheiro gerado pelo npx </resultado>
+    </resultados>
+</manifesto>
