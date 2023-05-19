@@ -29,6 +29,7 @@ module.exports.createTask = (task) => {
       return resposta.data;
     })
     .catch((erro) => {
+      console.log("erro");
       return erro;
     });
 };
